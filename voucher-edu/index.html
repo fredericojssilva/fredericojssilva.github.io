@@ -1,94 +1,246 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 Parabéns Eduardinho!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎂 Feliz Aniversário Eduardinho</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff4fa3, #00e5d4);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .card {
-            background: white;
-            color: #222;
-            padding: 40px;
-            border-radius: 25px;
-            max-width: 600px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background:
+        radial-gradient(circle at top left,#ff4fa3 0%,transparent 30%),
+        radial-gradient(circle at top right,#ffd54f 0%,transparent 30%),
+        radial-gradient(circle at bottom left,#00e5d4 0%,transparent 30%),
+        #f8f8f8;
 
-        h1 {
-            font-size: 4rem;
-            margin: 0;
-        }
+    min-height: 100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
 
-        .money {
-            font-size: 5rem;
-            color: #00c9a7;
-            font-weight: bold;
-            margin: 20px 0;
-        }
+.card{
+    background:white;
+    max-width:700px;
+    width:100%;
+    border-radius:30px;
+    padding:50px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+    position:relative;
+    z-index:2;
+}
 
-        .chatgpt {
-            color: #10a37f;
-            font-weight: bold;
-        }
+h1{
+    font-size:4rem;
+    margin-bottom:20px;
+}
 
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 30px;
-            background: #ff4fa3;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            transition: 0.2s;
-        }
+.question{
+    font-size:2rem;
+    margin:20px 0;
+}
 
-        .btn:hover {
-            transform: scale(1.05);
-        }
+.money{
+    font-size:7rem;
+    font-weight:bold;
+    color:#00c7a7;
+    margin:20px 0;
+}
 
-        .emoji {
-            font-size: 60px;
-        }
-    </style>
+button{
+    border:none;
+    padding:18px 40px;
+    font-size:1.2rem;
+    border-radius:999px;
+    background:#ff4fa3;
+    color:white;
+    cursor:pointer;
+    transition:.25s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.dialog{
+    background:white;
+    padding:40px;
+    border-radius:30px;
+    width:min(90%,500px);
+    text-align:center;
+    animation:pop .5s cubic-bezier(.18,1.5,.5,1);
+}
+
+.dialog h2{
+    font-size:2.5rem;
+    margin-bottom:20px;
+}
+
+.dialog p{
+    margin:15px 0;
+    font-size:1.2rem;
+}
+
+.big{
+    font-size:5rem;
+    color:#00c7a7;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+.confetti,.note{
+    position:fixed;
+    top:-50px;
+    pointer-events:none;
+    z-index:9999;
+}
+
+@keyframes fall{
+    to{
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+@keyframes pop{
+    from{
+        opacity:0;
+        transform:scale(.5);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+</style>
 </head>
+
 <body>
 
 <div class="card">
-    <div class="emoji">😂</div>
+    <div style="font-size:70px;">😂</div>
 
     <h1>Foste Apanhado!</h1>
 
-    <p>Achavas mesmo que este vale era oficial?</p>
+    <div class="question">
+        Achavas mesmo que este vale era oficial?
+    </div>
 
-    <p>
-        A tua tia fez isto com a ajuda do
-        <span class="chatgpt">ChatGPT</span> 🤖
+    <p style="font-size:1.4rem;">
+        A tua tia fez isto com ajuda do 🤖 ChatGPT
     </p>
-
-    <p>Mas a parte importante continua a ser verdade...</p>
 
     <div class="money">70€</div>
 
-    <h2>🎂 Feliz Aniversário, Eduardinho! 🎂</h2>
+    <h2>🎂 Feliz Aniversário, Eduardinho!</h2>
 
-    <a class="btn" href="#" onclick="alert('Os 70€ serão entregues em mãos 😄')">
-        Onde estão os meus 70€?
-    </a>
+    <br><br>
+
+    <button onclick="showPrize()">
+        💶 Onde estão os meus 70€?
+    </button>
 </div>
+
+<div class="modal" id="modal">
+    <div class="dialog">
+        <h2>🎉 Transferência aprovada!</h2>
+
+        <p>O Banco da Tia™ confirmou a operação.</p>
+
+        <div class="big">70€</div>
+
+        <p>
+            Dirige-te ao balcão mais próximo
+            (normalmente a cozinha ou a sala)
+            para levantares os fundos 😄
+        </p>
+
+        <br>
+
+        <button onclick="closeModal()">
+            Obrigado 😎
+        </button>
+    </div>
+</div>
+
+<script>
+
+function createConfetti(amount){
+    const emojis=["🎉","✨","🎊","⭐"];
+
+    for(let i=0;i<amount;i++){
+        const e=document.createElement("div");
+        e.className="confetti";
+        e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+        e.style.left=Math.random()*100+"vw";
+        e.style.fontSize=(20+Math.random()*20)+"px";
+        e.style.animation=
+            `fall ${4+Math.random()*4}s linear forwards`;
+
+        document.body.appendChild(e);
+
+        setTimeout(()=>e.remove(),8000);
+    }
+}
+
+function createMoney(amount){
+    for(let i=0;i<amount;i++){
+        const e=document.createElement("div");
+        e.className="note";
+        e.innerHTML="💶";
+
+        e.style.left=Math.random()*100+"vw";
+        e.style.fontSize=(40+Math.random()*30)+"px";
+
+        e.style.animation=
+            `fall ${3+Math.random()*3}s linear forwards`;
+
+        document.body.appendChild(e);
+
+        setTimeout(()=>e.remove(),7000);
+    }
+}
+
+function showPrize(){
+    document.getElementById("modal").classList.add("show");
+    createMoney(30);
+}
+
+function closeModal(){
+    document.getElementById("modal").classList.remove("show");
+}
+
+window.onload=()=>{
+    createConfetti(50);
+}
+
+</script>
 
 </body>
 </html>
