@@ -4,243 +4,123 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🎂 Feliz Aniversário Eduardinho</title>
-
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;
+overflow:hidden;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:16px;
+background:linear-gradient(135deg,#ff4fa3,#ffd54f,#00e5d4);
 }
-
-body {
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-    background:
-        radial-gradient(circle at top left,#ff4fa3 0%,transparent 30%),
-        radial-gradient(circle at top right,#ffd54f 0%,transparent 30%),
-        radial-gradient(circle at bottom left,#00e5d4 0%,transparent 30%),
-        #f8f8f8;
-
-    min-height: 100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
-
 .card{
-    background:white;
-    max-width:700px;
-    width:100%;
-    border-radius:30px;
-    padding:50px;
-    text-align:center;
-    box-shadow:0 20px 50px rgba(0,0,0,.15);
-    position:relative;
-    z-index:2;
+background:white;
+width:min(92vw,700px);
+padding:32px 24px;
+border-radius:24px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,.2);
+z-index:2;
 }
-
-h1{
-    font-size:4rem;
-    margin-bottom:20px;
-}
-
-.question{
-    font-size:2rem;
-    margin:20px 0;
-}
-
-.money{
-    font-size:7rem;
-    font-weight:bold;
-    color:#00c7a7;
-    margin:20px 0;
-}
-
+h1{font-size:clamp(2.4rem,10vw,4rem)}
+.question{font-size:clamp(1.2rem,5vw,2rem);margin:20px 0}
+.money{font-size:clamp(4rem,18vw,7rem);color:#00b894;font-weight:bold}
+h2{font-size:clamp(1.4rem,6vw,2.2rem);margin-top:15px}
 button{
-    border:none;
-    padding:18px 40px;
-    font-size:1.2rem;
-    border-radius:999px;
-    background:#ff4fa3;
-    color:white;
-    cursor:pointer;
-    transition:.25s;
+margin-top:25px;
+padding:16px 28px;
+border:none;
+border-radius:999px;
+font-size:1.1rem;
+background:#ff4fa3;
+color:white;
+cursor:pointer;
+width:min(100%,320px);
 }
-
-button:hover{
-    transform:scale(1.05);
-}
-
 .modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.75);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:1000;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.75);
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:10;
 }
-
-.modal.show{
-    display:flex;
-}
-
+.modal.show{display:flex}
 .dialog{
-    background:white;
-    padding:40px;
-    border-radius:30px;
-    width:min(90%,500px);
-    text-align:center;
-    animation:pop .5s cubic-bezier(.18,1.5,.5,1);
+background:white;
+padding:30px;
+border-radius:24px;
+width:min(90vw,500px);
+text-align:center;
+animation:pop .4s ease;
 }
-
-.dialog h2{
-    font-size:2.5rem;
-    margin-bottom:20px;
-}
-
-.dialog p{
-    margin:15px 0;
-    font-size:1.2rem;
-}
-
-.big{
-    font-size:5rem;
-    color:#00c7a7;
-    font-weight:bold;
-    margin:20px 0;
-}
-
+.big{font-size:clamp(3rem,15vw,5rem);color:#00b894;font-weight:bold;margin:10px 0}
 .confetti,.note{
-    position:fixed;
-    top:-50px;
-    pointer-events:none;
-    z-index:9999;
+position:fixed;
+top:-50px;
+pointer-events:none;
+z-index:9999;
+animation:fall linear forwards;
 }
-
 @keyframes fall{
-    to{
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-    }
+to{transform:translateY(110vh) rotate(720deg);}
 }
-
 @keyframes pop{
-    from{
-        opacity:0;
-        transform:scale(.5);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
+from{transform:scale(.6);opacity:0}
+to{transform:scale(1);opacity:1}
 }
 </style>
 </head>
-
 <body>
-
 <div class="card">
-    <div style="font-size:70px;">😂</div>
-
-    <h1>Foste Apanhado!</h1>
-
-    <div class="question">
-        Achavas mesmo que este vale era oficial?
-    </div>
-
-    <p style="font-size:1.4rem;">
-        A tua tia fez isto com ajuda do 🤖 ChatGPT
-    </p>
-
-    <div class="money">70€</div>
-
-    <h2>🎂 Feliz Aniversário, Eduardinho!</h2>
-
-    <br><br>
-
-    <button onclick="showPrize()">
-        💶 Onde estão os meus 70€?
-    </button>
+<div style="font-size:64px">😂</div>
+<h1>Foste Apanhado!</h1>
+<div class="question">Achavas mesmo que este vale era oficial?</div>
+<p>A tua tia fez isto com ajuda do 🤖 ChatGPT</p>
+<div class="money">70€</div>
+<h2>🎂 Feliz Aniversário, Eduardinho!</h2>
+<button onclick="showPrize()">💶 Onde estão os meus 70€?</button>
 </div>
 
 <div class="modal" id="modal">
-    <div class="dialog">
-        <h2>🎉 Transferência aprovada!</h2>
-
-        <p>O Banco da Tia™ confirmou a operação.</p>
-
-        <div class="big">70€</div>
-
-        <p>
-            Dirige-te ao balcão mais próximo
-            (normalmente a cozinha ou a sala)
-            para levantares os fundos 😄
-        </p>
-
-        <br>
-
-        <button onclick="closeModal()">
-            Obrigado 😎
-        </button>
-    </div>
+<div class="dialog">
+<h2>🎉 Transferência aprovada!</h2>
+<p>O Banco da Tia™ confirmou a operação.</p>
+<div class="big">70€</div>
+<p>Dirige-te ao balcão mais próximo (normalmente a cozinha ou a sala) para levantares os fundos 😄</p>
+<button onclick="closeModal()">Obrigado 😎</button>
+</div>
 </div>
 
 <script>
-
-function createConfetti(amount){
-    const emojis=["🎉","✨","🎊","⭐"];
-
-    for(let i=0;i<amount;i++){
-        const e=document.createElement("div");
-        e.className="confetti";
-        e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
-
-        e.style.left=Math.random()*100+"vw";
-        e.style.fontSize=(20+Math.random()*20)+"px";
-        e.style.animation=
-            `fall ${4+Math.random()*4}s linear forwards`;
-
-        document.body.appendChild(e);
-
-        setTimeout(()=>e.remove(),8000);
-    }
+function rain(items, count, cls){
+for(let i=0;i<count;i++){
+const el=document.createElement("div");
+el.className=cls;
+el.innerHTML=items[Math.floor(Math.random()*items.length)];
+el.style.left=Math.random()*100+"vw";
+el.style.fontSize=(20+Math.random()*30)+"px";
+el.style.animationDuration=(3+Math.random()*4)+"s";
+document.body.appendChild(el);
+setTimeout(()=>el.remove(),8000);
+}
 }
 
-function createMoney(amount){
-    for(let i=0;i<amount;i++){
-        const e=document.createElement("div");
-        e.className="note";
-        e.innerHTML="💶";
-
-        e.style.left=Math.random()*100+"vw";
-        e.style.fontSize=(40+Math.random()*30)+"px";
-
-        e.style.animation=
-            `fall ${3+Math.random()*3}s linear forwards`;
-
-        document.body.appendChild(e);
-
-        setTimeout(()=>e.remove(),7000);
-    }
-}
+window.onload=()=>rain(["🎉","✨","🎊","⭐"],60,"confetti");
 
 function showPrize(){
-    document.getElementById("modal").classList.add("show");
-    createMoney(30);
+document.getElementById("modal").classList.add("show");
+rain(["💶"],35,"note");
 }
 
 function closeModal(){
-    document.getElementById("modal").classList.remove("show");
+document.getElementById("modal").classList.remove("show");
 }
-
-window.onload=()=>{
-    createConfetti(50);
-}
-
 </script>
-
 </body>
 </html>
